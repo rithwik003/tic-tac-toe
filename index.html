@@ -1,0 +1,447 @@
+<!--<!DOCTYPE>
+<html lang="en">
+<head>
+    
+    <style>
+        body{
+            background:linear-gradient(300deg, rgb(93, 93, 163) 0%,rgb(82, 175, 82) 100%);
+        }
+        h1{
+            text-align:center;
+        }
+        #a1{
+            padding-top: 15%;
+            text-align:center;
+        }
+        #a2{
+            text-align:center;
+        }
+        #a3{
+            text-align:center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Tic Tac Toe</h1>
+    <button onclick="myfun()">Start</button>
+    
+
+    <p id="a1"></p>
+    <p id="a2"></p>
+    <p id="a3"></p>
+    <input type="number" id="b1" placeholder="Player-1 enter the input">
+    <input type="number" id="b2" placeholder="Player-2 enter the input">
+    <p id="a4"></p>
+    <p id="a5"></p>
+    <p id="a6"></p>
+    <p id="a7"></p>
+    <p id="a8"></p>
+    <p id="a9"></p>
+    
+    <script>
+        
+            const brr=["0","1","2","3","4","5","6","7","8"];
+            var a=0,b=0,i=0,c=0;
+            document.getElementById("a1").innerHTML="    "+brr[0]+"    |"+"    "+brr[1]+"    |"+"    "+brr[2]+"    ";
+            document.getElementById("a2").innerHTML="    "+brr[3]+"    |"+"    "+brr[4]+"    |"+"    "+brr[5]+"    ";
+            document.getElementById("a3").innerHTML="    "+brr[6]+"    |"+"    "+brr[7]+"    |"+"    "+brr[8]+"    ";
+            
+        function myfun(){    
+            while(c==0){
+                var id=0;
+                
+                if(i%2==0){
+                    id=1;
+                    
+                    //var n= document.getElementById("b1").value;
+                    var n = prompt("Player-1\n Enter the input: ", "");
+                    while(n<0 || n>8){
+                        var n = prompt("Player-1\n The number should be in 0-8 please enter again: ", "");
+                    }
+                    //var n=readLine("Player-1 Enter the input: ");
+                }
+                else{
+                    id=2;
+                    //var n= document.getElementById("b2").value;
+                    var n = prompt("Player-2\n Enter the input: ", "");
+                    while(n<0 || n>8){
+                        var n = prompt("Player-2\n The number should be in 0-8 please enter again: ", "");
+                    }
+                    //var n=readLine("Player-2 Enter the input: ");
+                }
+                
+                while(brr[n]=="X"||brr[n]=="O"){
+                    
+                    if(i%2==0){
+                        id=1;
+                        //var n= document.getElementById("b1").value;
+                        var n = prompt("Player-1\n Its already given please enter again : ", "");
+                        while(n<0 || n>8){
+                            var n = prompt("Player-1\n The number should be in 0-8 please enter again: ", "");
+                        }
+                        //var n=readLine("Its already entered Please Enter the input again: ");
+                    }
+                    else{
+                        id=2;
+                        //var n= document.getElementById("b2").value;
+                        var n = prompt("Player-2\n Its already given please enter again : ", "");
+                        while(n<0 || n>8){
+                            var n = prompt("Player-2\n The number should be in 0-8 please enter again: ", "");
+                        }
+                        //var n=readLine("Its already entered Please Enter the input again: ");
+                    }
+                }
+                
+                if(id==1){
+                    brr[n]="X";
+                    document.getElementById("a1").innerHTML="    "+brr[0]+"    |"+"    "+brr[1]+"    |"+"    "+brr[2]+"    ";
+                    document.getElementById("a2").innerHTML="    "+brr[3]+"    |"+"    "+brr[4]+"    |"+"    "+brr[5]+"    ";
+                    document.getElementById("a3").innerHTML="    "+brr[6]+"    |"+"    "+brr[7]+"    |"+"    "+brr[8]+"    ";
+                }
+                if(id==2){
+                    brr[n]="O";
+                    document.getElementById("a1").innerHTML="    "+brr[0]+"    |"+"    "+brr[1]+"    |"+"    "+brr[2]+"    ";
+                    document.getElementById("a2").innerHTML="    "+brr[3]+"    |"+"    "+brr[4]+"    |"+"    "+brr[5]+"    ";
+                    document.getElementById("a3").innerHTML="    "+brr[6]+"    |"+"    "+brr[7]+"    |"+"    "+brr[8]+"    ";
+                }
+                /*for(var j=0;j<9;j++){
+                    if(brr[j]=="X"||brr[j]=="O"){
+                        
+                    }
+                    else{
+                        brr[j]=" ";
+                    }
+                }*/
+                
+                
+                if(brr[0]==brr[1]&&brr[1]==brr[2]){
+                    if(brr[0]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                else if(brr[3]==brr[4]&&brr[4]==brr[5]){
+                    if(brr[3]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                else if(brr[6]==brr[7]&&brr[7]==brr[8]){
+                    if(brr[6]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                else if(brr[0]==brr[4]&&brr[4]==brr[8]){
+                    if(brr[0]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                else if(brr[2]==brr[4]&&brr[4]==brr[6]){
+                    if(brr[2]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                else if(brr[0]==brr[3]&&brr[3]==brr[6]){
+                    if(brr[0]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                else if(brr[1]==brr[4]&&brr[4]==brr[7]){
+                    if(brr[1]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                else if(brr[2]==brr[5]&&brr[5]==brr[8]){
+                    if(brr[2]=="X"){
+                        a=1;
+                        document.getElementById("a5").innerHTML="Player-1 Won🎉";
+                    }
+                    else{
+                        b=1;
+                        document.getElementById("a5").innerHTML="Player-2 Won🎉";
+                    }
+                }
+                
+                
+                i++;
+                if(i==9){
+                    document.getElementById("a6").innerHTML="GAME TIE";
+                }
+                if(i==9||a==1||b==1){
+                    c++;
+                }
+                
+            }
+        }  
+    </script>
+</body>
+</html>-->
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="google-site-verification" content="GkA9B9zz_4XM5jdySd2RiDAxNoidv9chJLZLIsm0H6c" />
+  <meta charset="UTF-8">
+  <meta name="keywords" content="tic tac toe, game, strategy, board game, X and O, multiplayer, single player, online, offline, AI, challenging, turn-based, play, win, lose, draw, strategy, tactics, logic, entertainment,rithwik,rithwik003,rithwik amaraneni,amaraneni rithwik,rithwik games,rithwik amaraneni tic tac toe,rithwik tictactoe,amaraneni ">
+  <meta name="description" content=" Welcome to our two-player tic tac toe game! Tic tac toe is a classic board game where two players take turns placing X and O symbols on a 3x3 grid, aiming to create a line of three of their symbols horizontally, vertically, or diagonally. Challenge a friend or family member to a friendly match and test your strategic skills against each other. With its simple rules and quick gameplay, tic tac toe is a perfect choice for spending quality time together and engaging in some friendly competition. So grab a pen and paper or play digitally on our website, and let the exciting battles begin! Will you be able to outsmart your opponent and achieve victory, or will the game end in a draw? Start playing now and enjoy the timeless fun of tic tac toe!">
+  <meta name="author" content="Rithwik">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link type="image/png" size="96x96" rel="icon" href="">
+    <title>Tic Tac Toe</title>
+    <style>
+        body{
+            background-color:rgb(101, 101, 101);
+            color:white;
+        }
+        table {
+            border-collapse: collapse;
+            cursor:pointer;
+            text-align:center;
+            width:27%;
+            margin-left:37%;
+            background-color:rgb(183, 128, 149);
+        }
+
+        td {
+            border: 3px solid black;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            font-size: 40px;
+            font-weight: bold;
+        }
+        td:hover{
+            background-color:rgb(255, 172, 204);
+        }
+        h1{
+            text-align:center;
+        }
+        #b1{
+            text-align:center;
+            font-size:30px;
+            margin-left:43%;
+           
+        }
+        #b2{
+                cursor:pointer;
+                background-color:aquamarine;
+                color:black;
+                text-align: center;
+                padding-left:10px;
+                padding-top:10px;
+                padding-bottom:10px;
+                padding-right:10px;
+                visibility:hidden;
+                border-radius:10px;
+                margin-left:42%;
+                font-size:30px;
+                
+        }
+        #b2:hover{
+            background-color:rgb(145, 178, 206);
+            color:black;
+        }
+        .blur{
+            filter:blur(5px);
+        }
+        
+        @media only screen and (max-width:768px){
+            table {
+                border-collapse: collapse;
+                cursor:pointer;
+                text-align:center;
+                width:80%;
+                margin-left:10%;
+                
+            }
+
+            td {
+                border: 3px solid black;
+                width: 100px;
+                height: 100px;
+                text-align: center;
+                font-size: 40px;
+                font-weight: bold;
+            }
+            td:hover{
+                background-color:rgb(255, 172, 204);
+            }
+            h1{
+                text-align:center;
+            }
+            #b1{
+                text-align:center;
+                font-size:30px;
+                margin-left:25%;
+            }
+            #b2{
+                cursor:pointer;
+                background-color:aquamarine;
+                color:black;
+                text-align: center;
+                padding-left:10px;
+                padding-top:10px;
+                padding-bottom:10px;
+                padding-right:10px;
+                visibility:hidden;
+                margin-left:25%;
+                font-size:30px;
+            }
+            #b2:hover{
+                background-color:rgb(145, 178, 206);
+                color:black;
+            }
+            .blur{
+                filter:blur(5px);
+            }
+        
+        }
+    </style>
+</head>
+<body>
+    <h1><u>Tic Tac Toe</u></h1>
+    <br>
+    <span id="b1"></span>
+    <br>
+    <br>
+    <span  id="b2" onclick="location.reload();"> </span>
+    <br>
+    
+    <table>
+        <tr>
+            <td onclick="myfun(0)" id="a1"></td>
+            <td onclick="myfun(1)" id="a2"></td>
+            <td onclick="myfun(2)" id="a3"></td>
+        </tr>
+        <tr>
+            <td onclick="myfun(3)" id="a4"></td>
+            <td onclick="myfun(4)" id="a5"></td>
+            <td onclick="myfun(5)" id="a6"></td>
+        </tr>
+        <tr>
+            <td onclick="myfun(6)" id="a7"></td>
+            <td onclick="myfun(7)" id="a8"></td>
+            <td onclick="myfun(8)" id="a9"></td>
+        </tr>
+        <br>
+        
+    </table>
+
+    <script>
+        const brr = [" ", " ", " ", " ", " ", " ", " ", " ", " "];
+        var a = 0;
+        var b = 0;
+        var i = 0;
+        var c = 0;
+
+        function myfun(n) {
+            if (brr[n] == "X" || brr[n] == "O") {
+                return; // Cell already occupied
+            }
+
+            if (i % 2 == 0) {
+                brr[n] = "X";
+            } else {
+                brr[n] = "O";
+            }
+
+            document.getElementById("a" + (n + 1)).innerHTML = brr[n];
+
+            if (
+                (brr[0] == brr[1] && brr[1] == brr[2] && brr[0] != " ") ||
+                (brr[3] == brr[4] && brr[4] == brr[5] && brr[3] != " ") ||
+                (brr[6] == brr[7] && brr[7] == brr[8] && brr[6] != " ") ||
+                (brr[0] == brr[3] && brr[3] == brr[6] && brr[0] != " ") ||
+                (brr[1] == brr[4] && brr[4] == brr[7] && brr[1] != " ") ||
+                (brr[2] == brr[5] && brr[5] == brr[8] && brr[2] != " ") ||
+                (brr[0] == brr[4] && brr[4] == brr[8] && brr[0] != " ") ||
+                (brr[2] == brr[4] && brr[4] == brr[6] && brr[2] != " ")
+            ) {
+                if (brr[n] == "X") {
+                    a = 1;
+                    document.getElementById("b1").innerHTML = "Player-1 Won🎉";
+                } else {
+                    b = 1;
+                    document.getElementById("b1").innerHTML = "Player-2 Won🎉";
+                }
+                
+
+                disableCells(); // Disable remaining cells after winning
+            } else if (i == 8) {
+                document.getElementById("b1").innerHTML = "GAME TIE";
+                disableCells();
+            }
+
+            i++;
+        }
+
+        function disableCells() {
+            
+            var button = document.getElementById("b2");
+            
+            button.style.visibility = "visible";
+            document.getElementById("b2").innerHTML="PLAY AGAIN";
+           
+           
+            for (var j = 0; j < 9; j++) {
+                document.getElementById("a" + (j + 1)).onclick = null;
+            }
+            /*var rootElement = document.documentElement;
+            var button = document.getElementById("b2");
+            if(rootElement.classList.contains("blur")){
+                rootElement.classList.remove("blur");
+                button.classList.remove("button-blur");
+                
+            }
+            else{
+                rootElement.classList.add("blur");
+                button.classList.add("button-blur");
+                
+            }
+            button.style.filter="none";
+            */
+            var elements = document.documentElement.querySelectorAll('h1:not(#b2,#b1),span:not(#b2,#b1),table:not(#b2,#b1)');
+                elements.forEach(function(element) {
+                    element.classList.add('blur');
+                });
+                
+            
+            
+            
+        }
+    </script>
+</body>
+</html>
